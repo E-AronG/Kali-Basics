@@ -1,0 +1,51 @@
+Download a kali linux iso image
+
+The only official source of Kali Linux ISO images is the Downloads section of the Kali website. Due
+to its popularity, numerous sites offer Kali images for download, but they should not be considered
+trustworthy and indeed may be infected with malware or otherwise cause irreparable damage to
+your system.
+
+➨ https://www.kali.org/downloads/
+The website is available over HTTPS, making it difficult to impersonate.
+
+What to download? Is My CPU is 32 bit or 64 bit? 
+In Windows OS you can find this information by running System Information application.
+A 64-bit cpu can also run 32-bit iso of any application, but vise versa is not possible.
+
+
+Verifying Integrity and Authenticity
+
+Relying on the TLS-protected Website, 
+When you retrieve the checksum from the TLS-protected download webpage, its origin is indi-
+rectly guaranteed by the X.509 certificate security model: the content you see comes from a web
+site that is effectively under the control of the person who requested the TLS certificate.
+Now you should generate the checksum of your downloaded image and ensure that it matches
+what you recorded from the Kali website:
+
+$ sha256sum kali-linux-2017.1-amd64.iso
+49b1c5769b909220060dc4c0e11ae09d97a270a80d259e05773101df62e11e9d kali-linux-2016.2-amd64.is
+
+
+Using  live kali linux without installing it in the system,
+we can do that just by makign a bootable usb, having minimum 8GB, storage.
+
+We can use the tools like Rufus and other if you are using Windows Os, 
+and for linux we can use Disk Utilit application, or we can use terminal,
+
+first we have to know the mount point of our Usb stick, use commond 
+lsblk  (to get the disk and partitions mount point).
+
+Normally all External media is mount at "/dev/sdb".
+
+After Known the location of our usb, we just have to copy the iso image to it,
+for that, we use the commond,
+
+# dd if=<location of the iso image> of=<location ot the usb>
+
+if stands for "input file" and of stands for "output file"
+The dd commond reads from the input file and write it back to out put file.
+
+dd commond does not alway show any progress information so you must be patient while it is doing its woek.
+
+
+
